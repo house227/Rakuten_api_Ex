@@ -1,13 +1,15 @@
 <template>
+<!-- 子コンポーネントに楽天APIの検索結果を送る -->
 <HelloWorld v-for="data in datas.result" 
+  :recipe_data="data"
   :key="data.id" 
-  :rank_data="data.rank" 
-  :title_data="data.recipeTitle"
-  :recipe_image="data.smallImageUrl"
-  
+
 />
 
-
+  <!-- :rank_data="data.rank" 
+  :title_data="data.recipeTitle"
+  :recipe_image="data.smallImageUrl"
+  :recipe_materials="data.recipeMaterial" -->
 </template>
 
 <script>

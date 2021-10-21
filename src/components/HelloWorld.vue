@@ -1,9 +1,10 @@
 <template>
   <div>
     <table>
-      <tr><th>ランキング</th><td>{{rank_data}}</td></tr>
-      <tr><th>タイトル</th><td>{{title_data}}</td></tr>
+      <tr><th>ランキング</th><td>{{recipe_rank}}</td></tr>
+      <tr><th>タイトル</th><td>{{recipe_title}}</td></tr>
       <tr><img :src="recipe_image" alt=""></tr>
+      <tr><li v-for="recipe in recipe_materials" :key="recipe.id">{{recipe}}</li></tr>
     </table>
   </div>
 </template>
@@ -12,24 +13,20 @@
 export default {
   name: 'HelloWorld',
   data:() => ({
-    // recipe_rank:"aa",
-    // recipe_title:"",
-    // recipe_image:"",
-    // recipe_material:"",
-    // recipe:"",
+    recipe_rank:"",
+    recipe_title:"",
+    recipe_image:"",
+    recipe_materials:"",
   }),
   props:{
-    data:Object,
-    rank_data:String,
-    title_data:String,
-    recipe_image:String,
+    recipe_data:Object,
+
   },
   mounted(){
-    // const first_recipe = recipe_data
-    // this.recipe_title = first_recipe.recipeTitle
-    // this.recipe_image = first_recipe.smallImageUrl
-    // this.recipe_material = first_recipe.mediumMaterial
-    // this.recipe_rank = first_recipe.rank
+    this.recipe_rank = this.recipe_data.rank
+    this.recipe_title = this.recipe_data.recipeTitle
+    this.recipe_image = this.recipe_data.smallImageUrl
+    this.recipe_materials = this.recipe_data.recipeMaterial
 
 
   }
